@@ -23,7 +23,7 @@ def data_loader(codonfile, aminofile):
             # چک پترن خط
             m = re.match(r"^([ACGTU]{3})\s+(\S+)$",line) # یعنی خط با سه تا از کاراکترهای داخل کروشه شروع بشه + فاصله + یک استرینگ دیگر
             if not m:
-                print(f" WARNING: codon format mot found in line {i+1}")
+                print(f" WARNING: codon format not found in line {i+1}")
             else:
                 codon = m.group(1)
                 amino = m.group(2)
