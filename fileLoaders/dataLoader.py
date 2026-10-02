@@ -54,5 +54,8 @@ def data_loader(codonfile, aminofile):
                 if amino in amino_weights:
                     log.warning("amino_weights.txt line %d: duplicate amino %s", i + 1, amino)
                 amino_weights[amino]=weight
-
+    if not codon_table:
+        log.error("codon_table.txt has no valid input")
+    if not amino_weights:
+        log.error("amino_weights.txt has no valid input")
     return codon_table, amino_weights

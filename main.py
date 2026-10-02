@@ -7,6 +7,7 @@ from models.ORF import ORF
 from utils.ORF_detector import ORF_detection
 from logger import setup_logging
 from fileLoaders.dataLoader import data_loader
+import sys
 
 
 if __name__ =="__main__":
