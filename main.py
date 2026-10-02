@@ -1,4 +1,5 @@
-from pathlib import Path
+import os
+import re
 
 from fileLoaders.dataLoader import data_loader
 from fileLoaders.inputLoader import input_loader
@@ -6,17 +7,20 @@ from models.sequence import Sequence
 from models.ORF import ORF
 from utils.ORF_detector import ORF_detection
 
-
 if __name__ =="__main__":
-    abs_path = Path(__file__).parent   # مسیر پروژه 
-    codon_data_path = Path(__file__).resolve().parent/"data"/"codon_table.txt"
-    amino_data_path = Path(__file__).resolve().parent/"data"/"amino_weights.txt"      
-    res = data_loader(codon_data_path,amino_data_path)
-    CODONS = res[0]
-    WEIGHTS = res[1]
+    
+     # مسیر پروژه 
+    abs_path = os.getcwd()   
 
-    input_FASTA_path = Path(__file__).resolve().parent/"input"/"sample.fasta"
-    FASTA = input_loader(input_FASTA_path)
+    # خواندن داده ها از مسیر data    
+    res = data_loader(abs_path)
+    CODONS = res[0]       # دیکشنری کدنها
+    WEIGHTS = res[1]      # دیکشنری وزنها
+    stop_codons = res[2]  # تاپل استاپ کدنها
+
+    # خواندن فایل فستا    
+    input_FASTA_file = os.path.join(abs_path, "input", "sample.fasta")
+    FASTA = input_loader(input_FASTA_file)
     print(FASTA)
 
 # این قسمت باید برای همه رکوردهای فایل ورودی تکرار شود
@@ -25,7 +29,7 @@ if __name__ =="__main__":
     complement = s1.reverse_complement()
    
 # استخراج لیست ORF های این sequence
-    ORF_detection(s1.sequence,complement)
+    ORF_detection(s1.sequence, complement, stop_codons)
  
 
 

@@ -20,10 +20,8 @@ def find_reading_frames(seq):
 
 # input: sequence
 # output: [ORFها]
-def ORF_detection(sequence, complement):
-    start_codon = "AUG"
-    stop_codon = ["UAA", "UAG", "UGA"]   
-    
+def ORF_detection(sequence, complement, stop_codon):
+    start_codon = "AUG"       
     forward = find_reading_frames(sequence)
     reveres = find_reading_frames(complement)
 
