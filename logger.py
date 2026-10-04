@@ -2,7 +2,7 @@ import logging
 from pathlib import Path
 
 LoggerName = "BioForge"
-LogFileName = "BioBorge.log"
+LogFileName = "bioforge.log"
 LogFormat = "%(asctime)s | %(levelname)-8s | %(message)s"
 
 
