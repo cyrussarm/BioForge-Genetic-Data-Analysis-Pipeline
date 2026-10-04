@@ -1,0 +1,1 @@
+usage: python main.py --input input/input.fasta --out output/ --min-length 1

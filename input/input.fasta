@@ -1,0 +1,15 @@
+# یک فایل تست 
+# هر رکورد با> در اول خط شروع میشود
+
+# تستت
+# ATGC
+>seq001 organism=E_coli sample=A
+ATGGCTAAATGA
+>seq002 organism=Human sample=B
+ATGGCTAAA
+>seq003 organism=Human sample=B
+ATGGCTTAATGAATGGCTAAATGA
+#>seq004 organism=Human sample=B
+#ATGGCCTAATGAATGGCCTAA
+#>seq005 organism=Human sample=B
+#ATGATGGCCTAA

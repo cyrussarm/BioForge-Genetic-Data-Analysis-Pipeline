@@ -1720,3 +1720,19 @@
 2026-10-04 16:37:49 | INFO     | Found 1 ORFs in seq002
 2026-10-04 16:37:49 | INFO     | Found 4 ORFs in seq003
 2026-10-04 16:37:49 | INFO     | Report saved to output0\report.txt
+2026-10-04 16:47:33 | INFO     | BioForge started
+2026-10-04 16:47:33 | INFO     | Data files loaded
+2026-10-04 16:47:33 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=E_coli sample=A
+2026-10-04 16:47:33 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-04 16:47:33 | INFO     | Sequence found: 
+ id : seq003 
+ header : organism=Human sample=B
+2026-10-04 16:47:33 | INFO     | FASTA file loaded: Number of recoreds = 3
+2026-10-04 16:47:33 | INFO     | Found 2 ORFs in seq001
+2026-10-04 16:47:33 | INFO     | Found 1 ORFs in seq002
+2026-10-04 16:47:33 | INFO     | Found 4 ORFs in seq003
+2026-10-04 16:47:33 | INFO     | Report saved to output\report.txt
