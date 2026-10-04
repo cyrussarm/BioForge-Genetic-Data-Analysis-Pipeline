@@ -2,21 +2,49 @@
 import os
 import re
 from logger import get_logger
+from models.BioForgeExceptions import FastaFormatError, InvalidSequenceError
+
 log = get_logger()
 
-fasta = []
-keys = []
+# بررسی بودن یا نبودن فایل- در صورت نبودن پیام خطا لاگ شده و برنامه متوقف خواهد شد
+def validate_file_exist(filename):      
+    if not os.path.exists(filename): 
+        msg = "FASTA input file not found"      
+        log.error(msg)
+        raise FastaFormatError(msg)
+    return True
 
-def parser(header , line_no):
+def is_file_empty(filename):
+    with open(filename) as f:
+        f.seek(0)
+        start = f.tell()
+        f.seek(0,2)
+        stop = f.tell()
+        if start==stop:
+            msg = "FASTA input file is empty"
+            log.error(f"{msg}")
+            raise FastaFormatError(msg)
+        # برگرد به ابتدای فایل
+        f.seek(0)
+
+def parser(header, keys):
+    add_to_file = True
     m = re.match((r"^>(\S+)\s*(.*)$"), header)  
-    seq_id = m.group(1)
-    seq_header = m.group(2)
-    if seq_id in keys:
-        log.warning("Line %d: duplicate ID '%s'", line_no, seq_id)
-        # هشدار برای تکراری بودن آیدی
-    else: 
-            keys.append(seq_id)
-    return seq_id, seq_header
+    if m: 
+        seq_id = m.group(1)
+        seq_header = m.group(2)
+        duplicated = False
+        # ثبت آیدی تکراری در لاگ
+        if seq_id in keys:
+            log.warning(f"duplicated sequence ID found in FASTA file: {seq_id}") 
+            print(f"duplicated sequence ID found in FASTA file: {seq_id}")   
+            duplicated = True        
+            return duplicated, seq_id, seq_header         
+        else: 
+            keys.add(seq_id)            
+            log.info(f"Sequence found: \n id : {seq_id} \n header : {seq_header}")
+            duplicated = False
+            return duplicated, seq_id, seq_header
 
 def isheader(line):
     m = re.match((r"^>(\S+)\s*(.*)$"), line)
@@ -25,8 +53,8 @@ def isheader(line):
     else:
         return False
 
-def issequence(line):
-    m = re.match((r"^[ACGT]+$"), line.upper()) # حروف کوچیک هم پذیرفته میشوند
+def issequence(line):   
+    m = re.match((r"^[ACGT]+$"), line)
     if m:
         return True
     else:
@@ -34,42 +62,72 @@ def issequence(line):
   
 def input_loader(filename): 
 
-    if not os.path.exists(filename):
-        log.error("Input FASTA not found: %s", filename) # اگر فایل فستا نباشد روی لاگ به این صورت اخطار می دهد
-        raise FileNotFoundError("input FASTA not found")
+    fasta = []
+    keys = set()
+    # بررسی بودن یا نبودن فایل ورودی
+    validate_file_exist(filename) 
 
-    seq_id = None
-    seq_header = None
-    has_seq = False
-    header_line = 0
+    # تشخیص فایل خالی
+    is_file_empty(filename)
 
+    _ = ""    
+    header_found = False
+    sequence_found = False
+    seq_is_dupplicated = False
     with open(filename, "r", encoding="utf-8") as f:
-        n = 0
-        for line in f :
-            n += 1
-            line = line.strip()
+        for line in f:
+            line = line.strip() 
+               # نادیده گرفتن خطوط خالی و کامنت
             if not line or line.startswith("#"):
                 continue
-
+             # در سکوئنس حروف کوچک را هم اکی کند
+            line_ = line.upper()
             if isheader(line):
-                if seq_id is not None and not has_seq:
-                    log.error("Header without sequence: '%s'", seq_id)
-                seq_id, seq_header = parser(line, n)
-                header_line = n
-                has_seq = False
+                if header_found and not sequence_found:
+                    msg = f"header without sequence: {seq_id}"
+                    log.error(msg)
+                    raise FastaFormatError(msg)  
+                header_found = True
+                
+                # اگر به هدر رسیدی و دیدی سکوئنس خالی نشده ذخیره اش کن . یک سکوئنس کامل به لیست اضافه کن
+                if _:
+                    fasta.append({"id":seq_id, "description":seq_header, "sequence":_})
+                _=""
+                sequence_found = False
+                
+                res = parser(line, keys)   
+                seq_is_dupplicated = res[0]              
+                seq_id = res[1]
+                seq_header = res[2]                 
+                              
+            elif issequence(line_): 
+                if not header_found:
+                    msg = "sequence found before first header line"
+                    log.error(f"{msg} {filename}")
+                    raise FastaFormatError(msg)
 
-            elif seq_id is None:
-                log.error("Line %d: sequence before the first header", n)
+                sequence_found = True
 
-            elif issequence(line):
-                fasta.append({"id":seq_id, "description":seq_header, "sequence":line})
-                has_seq = True
+                if not seq_is_dupplicated:
+                    # تا وقتی که پترن خط سکوئنس است خط را به مقدار قبلی سکوئنس اضافه کن
+                     _ += line_     
 
-            else:
-                log.error("Line %d: invalid sequence in '%s': %r", n, seq_id, line)
+            else:  
+                if line_:                    
+                    msg = f"Invalid sequence: {line_}"
+                    log.error(msg)
+                    raise InvalidSequenceError(msg)                      
+                continue
+        # بعد از آخرین خط اگر سکوئنس مونده سیوش کن
+        if _:
+            fasta.append({"id":seq_id, "description":seq_header, "sequence":_})            
+        elif header_found and not sequence_found:
+            msg = f"header without sequence: {seq_id}"
+            log.error(msg)
+            raise FastaFormatError(msg)
 
-    if seq_id is not None and not has_seq:
-        log.error("line %d :Header without sequence: '%s'",header_line, seq_id)
-    if not fasta:
-        log.error("No valid records found in %s", filename)
+    if not keys:
+        msg = "no sequence in fasta file"
+        log.error(f"{msg} {filename}")
+        raise FastaFormatError(msg)     
     return fasta

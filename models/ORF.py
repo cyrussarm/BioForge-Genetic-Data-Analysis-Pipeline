@@ -1,16 +1,22 @@
-class ORF:
-    def __init__(self,sequence, strand, Frame, start_pos, Protein, is_complete):
-        self.sequence = sequence
+class ORF:     
+    def __init__(self, codons, strand, frame, start_pos, protein, is_complete):
+        self.codons = codons
         self.strand = strand
-        self.Frame = Frame
+        self.frame = frame
         self.start_pos = start_pos
-        self.Protein = Protein
-        self.is_complete = is_complete
-        
+        self.is_complete = is_complete 
+        self.protein = None      # protein is an object         
+        self.id = None    
 
     def __str__(self):
-        return f"an ORF maked for sequence: {sequence}"
-
+        return (
+                f"codons={self.codons},\n"
+                f"strand={self.strand},\n"
+                f"frame={self.frame},\n"
+                f"start={self.start_pos},\n"
+                f"complete={self.is_complete},\n"                            
+                f"id={self.id}"
+                )
 
     
 
