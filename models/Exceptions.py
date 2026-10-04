@@ -5,7 +5,14 @@ class FastaFormatError(BioForgeError):
     pass
 
 class InvalidSequenceError(BioForgeError):
-    pass
+    def __init__(self, msg=None, value=None):
+        super().__init__(msg)
+        self.msg = msg
+        self.value=value
+
+    def __str__(self):
+        return f"{self.msg} : {self.value}"
+    
 
 class DataFileError(BioForgeError):
     def __init__(self, msg=None, value=None):
