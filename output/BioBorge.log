@@ -41,3 +41,8 @@
 2026-10-02 12:04:08 | WARNING  | Line 8: duplicate ID 'seq001'
 2026-10-02 12:04:08 | ERROR    | Line 10: invalid sequence in 'seq001': 'ATGXYZ'
 2026-10-02 12:04:08 | ERROR    | Header without sequence: 'seq003'
+2026-10-02 12:27:16 | INFO     | BioForge started
+2026-10-02 12:27:16 | ERROR    | Line 5: sequence before the first header
+2026-10-02 12:27:16 | WARNING  | Line 8: duplicate ID 'seq001'
+2026-10-02 12:27:16 | ERROR    | Line 10: invalid sequence in 'seq001': 'ATGXYZ'
+2026-10-02 12:27:16 | ERROR    | Header without sequence: 'seq003'
