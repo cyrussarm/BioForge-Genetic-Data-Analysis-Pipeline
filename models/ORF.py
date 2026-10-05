@@ -1,12 +1,13 @@
 class ORF:     
-    def __init__(self, codons, strand, frame, start_pos, protein, is_complete):
+    def __init__(self, codons, strand, frame, start_pos, protein, is_complete, source_id=None):
         self.codons = codons
         self.strand = strand
         self.frame = frame
         self.start_pos = start_pos
         self.is_complete = is_complete 
         self.protein = None      # protein is an object         
-        self.id = None    
+        self.id = None  
+        self.source_id = source_id # آیدی اولیه  
 
     def __str__(self):
         return (

@@ -1,56 +1,48 @@
-ID: BFG_001
-Strand: forward
-Frame: 0
-Start Position: 0
-Protein: MAK
-Molecular Weight: 348.187
-Status: Complete
-------------------------------
-ID: BFG_002
-Strand: forward
-Frame: 2
-Start Position: 8
-Protein: M
-Molecular Weight: 149.055
-Status: Incomplete
--------- THIS PART WILL BE COMPLETED _________------------------------------
-ID: BFG_003
-Strand: forward
-Frame: 0
-Start Position: 0
-Protein: MAK
-Molecular Weight: 348.187
-Status: Incomplete
--------- THIS PART WILL BE COMPLETED _________------------------------------
-ID: BFG_004
-Strand: forward
-Frame: 0
-Start Position: 0
-Protein: MA
-Molecular Weight: 220.092
-Status: Complete
-------------------------------
-ID: BFG_005
-Strand: forward
-Frame: 0
-Start Position: 12
-Protein: MAK
-Molecular Weight: 348.187
-Status: Complete
-------------------------------
-ID: BFG_006
-Strand: forward
-Frame: 2
-Start Position: 8
-Protein: MNG
-Molecular Weight: 320.119
-Status: Complete
-------------------------------
-ID: BFG_007
-Strand: forward
-Frame: 2
-Start Position: 20
-Protein: M
-Molecular Weight: 149.055
-Status: Incomplete
--------- THIS PART WILL BE COMPLETED _________------------------------------
+######################################## 
+BioForge Report - G6 
+######################################## 
+
+========================================
+
+id = seq001
+description = organism=Human sample=B
+sequence = CCCATGAAACCCGGGTAGTTTATGGGATGATGCCCCCTAA
+complement = GGGTACTTTGGGCCCATCAAATACCCTACTACGGGGGATT
+reverse_complement = TTAGGGGGCATCATCCCATAAACTACCCGGGTTTCATGGG
+GC content = 52.5
+number of ORFs = 1
+number of compelete ORFs = 1
+number of in_compelete ORFs = 0
+======== list of ORFs ======== 
+ORF No. : 1
+	Is_compelete: True
+	ORF codons: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG']
+	ID: BFG_001
+	Strand: forward
+	frame: 0
+	start position (1-based): 4
+	Protein's name: MKPG
+	Protein's Molecular Weight: 431.224
+	Protein's length: 4 
+========================================
+
+id = seq002
+description = organism=Human sample=B
+sequence = CCCATGAAACCCGGGTAGTTTATGGGATGATGCCCCC
+complement = GGGTACTTTGGGCCCATCAAATACCCTACTACGGGGG
+reverse_complement = GGGGGCATCATCCCATAAACTACCCGGGTTTCATGGG
+GC content = 56.75675675675676
+number of ORFs = 1
+number of compelete ORFs = 1
+number of in_compelete ORFs = 0
+======== list of ORFs ======== 
+ORF No. : 1
+	Is_compelete: True
+	ORF codons: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG']
+	ID: BFG_002
+	Strand: forward
+	frame: 0
+	start position (1-based): 4
+	Protein's name: MKPG
+	Protein's Molecular Weight: 431.224
+	Protein's length: 4 

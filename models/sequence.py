@@ -8,6 +8,7 @@ class Sequence:
         self.id = seq_id
         self.description = description
         self.sequence = sequence.upper()
+        self.orfs = []
         if not self.validate():
             raise InvalidSequenceError(f"Invalid sequence: {self.sequence}")
                

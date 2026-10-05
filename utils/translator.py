@@ -6,7 +6,7 @@ def translator(orf_obj, codon_table, weight_table):
             
             # اگر codon در جدول نبود خطا ندهد
             amino_ = codon_table.get(codon,None)
-            if amino_ =="*":
+            if amino_ is None or amino_ =="*":
                 continue
             amino_sequence += amino_
         orf_obj.protein = Protein(amino_sequence, weight_table)

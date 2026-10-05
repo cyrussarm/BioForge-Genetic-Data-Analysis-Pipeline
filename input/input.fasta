@@ -3,13 +3,7 @@
 
 # تستت
 # ATGC
->seq001 organism=E_coli sample=A
-ATGGCTAAATGA
+>seq001 organism=Human sample=B
+CCCATGAAACCCGGGTAGTTTATGGGATGATGCCCCCTAA
 >seq002 organism=Human sample=B
-ATGGCTAAA
->seq003 organism=Human sample=B
-ATGGCTTAATGAATGGCTAAATGA
-#>seq004 organism=Human sample=B
-#ATGGCCTAATGAATGGCCTAA
-#>seq005 organism=Human sample=B
-#ATGATGGCCTAA
+CCCATGAAACCCGGGTAGTTTATGGGATGATGCCCCC

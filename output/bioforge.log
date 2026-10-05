@@ -1,0 +1,305 @@
+2026-10-05 22:46:36 | INFO     | BioForge started
+2026-10-05 22:46:36 | INFO     | Data files loaded
+2026-10-05 22:46:36 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 22:46:36 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 22:46:36 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 22:46:36 | INFO     | Found 4 ORFs in seq001
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 22:46:36 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 22:46:36 | INFO     | Found 4 ORFs in seq002
+2026-10-05 22:46:36 | INFO     | Report saved to output\report.txt
+2026-10-05 23:20:01 | INFO     | BioForge started
+2026-10-05 23:20:01 | INFO     | Data files loaded
+2026-10-05 23:20:01 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:20:01 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:20:01 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:20:01 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:20:01 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:20:01 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:20:01 | INFO     | Report saved to output\report.txt
+2026-10-05 23:20:22 | INFO     | BioForge started
+2026-10-05 23:20:22 | INFO     | Data files loaded
+2026-10-05 23:20:22 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:20:22 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:20:22 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:20:22 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:20:22 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:20:22 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:20:22 | INFO     | Report saved to output\report.txt
+2026-10-05 23:38:25 | INFO     | BioForge started
+2026-10-05 23:38:25 | INFO     | Data files loaded
+2026-10-05 23:38:25 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:38:25 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:38:25 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:38:25 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:38:25 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:38:25 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:38:25 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:38:25 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:38:25 | ERROR    | unexpected error: cannot access local variable 'min_weight' where it is not associated with a value
+Traceback (most recent call last):
+  File "E:\Python Learning\Quera BootCamp\BioForge-Mehr1405\main.py", line 90, in main
+    filters.append(WeightFilter(min_weight=min_weight, max_weight=args.max_weight))
+                                           ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'min_weight' where it is not associated with a value
+2026-10-05 23:38:55 | INFO     | BioForge started
+2026-10-05 23:38:55 | INFO     | Data files loaded
+2026-10-05 23:38:55 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:38:55 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:38:55 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:38:55 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:38:55 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:38:55 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:38:55 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:38:55 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:38:55 | ERROR    | unexpected error: cannot access local variable 'min_weight' where it is not associated with a value
+Traceback (most recent call last):
+  File "E:\Python Learning\Quera BootCamp\BioForge-Mehr1405\main.py", line 90, in main
+    filters.append(WeightFilter(min_weight=min_weight, max_weight=args.max_weight))
+                                           ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'min_weight' where it is not associated with a value
+2026-10-05 23:39:49 | INFO     | BioForge started
+2026-10-05 23:39:49 | INFO     | Data files loaded
+2026-10-05 23:39:49 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:39:49 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:39:49 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:39:49 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:39:49 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:39:49 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:39:49 | INFO     | Report saved to output\report.txt
+2026-10-05 23:40:18 | INFO     | BioForge started
+2026-10-05 23:40:18 | INFO     | Data files loaded
+2026-10-05 23:40:18 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:40:18 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:40:18 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:40:18 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:40:18 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:40:18 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:40:18 | INFO     | Report saved to output\report.txt
+2026-10-05 23:43:18 | INFO     | BioForge started
+2026-10-05 23:43:18 | INFO     | Data files loaded
+2026-10-05 23:43:18 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:43:18 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:43:18 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:43:18 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:43:18 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:43:18 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:43:18 | INFO     | Report saved to output\report.txt
+2026-10-05 23:44:00 | INFO     | BioForge started
+2026-10-05 23:44:00 | INFO     | Data files loaded
+2026-10-05 23:44:00 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:44:00 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:44:00 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:44:00 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:44:00 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:44:00 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:44:00 | INFO     | Report saved to output\report.txt
+2026-10-05 23:47:49 | INFO     | BioForge started
+2026-10-05 23:47:49 | INFO     | Data files loaded
+2026-10-05 23:47:49 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:47:49 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:47:49 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:47:49 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:47:49 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:47:49 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:47:49 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:47:49 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:47:49 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:47:49 | INFO     | WeightFilter for min_weight: 150.0
+2026-10-05 23:47:49 | INFO     | MotifFilter for: ['TAG']
+2026-10-05 23:47:49 | ERROR    | unexpected error: 'ORF' object has no attribute 'motifs'
+Traceback (most recent call last):
+  File "E:\Python Learning\Quera BootCamp\BioForge-Mehr1405\main.py", line 102, in main
+    ORFs = apply_filters(ORFs, filters)
+  File "E:\Python Learning\Quera BootCamp\BioForge-Mehr1405\utils\filtering.py", line 104, in apply_filters
+    result = filter_.apply(result)
+  File "E:\Python Learning\Quera BootCamp\BioForge-Mehr1405\utils\filtering.py", line 91, in apply
+    for motif_ in orf.motifs:
+                  ^^^^^^^^^^
+AttributeError: 'ORF' object has no attribute 'motifs'
+2026-10-05 23:48:35 | INFO     | BioForge started
+2026-10-05 23:48:35 | INFO     | Data files loaded
+2026-10-05 23:48:35 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:48:35 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:48:35 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:48:35 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:48:35 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:48:35 | INFO     | WeightFilter for min_weight: 150.0
+2026-10-05 23:48:35 | INFO     | MotifFilter for: ['TAG']
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:48:35 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:48:35 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:48:35 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:48:35 | INFO     | WeightFilter for min_weight: 150.0
+2026-10-05 23:48:35 | INFO     | MotifFilter for: ['TAG']
+2026-10-05 23:48:35 | INFO     | Report saved to output\report.txt
+2026-10-05 23:50:37 | INFO     | BioForge started
+2026-10-05 23:50:37 | INFO     | Data files loaded
+2026-10-05 23:50:37 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:50:37 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:50:37 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:50:37 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:50:37 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:50:37 | INFO     | WeightFilter for min_weight: 150.0
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:50:37 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:50:37 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:50:37 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:50:37 | INFO     | WeightFilter for min_weight: 150.0
+2026-10-05 23:50:37 | INFO     | Report saved to output\report.txt
+2026-10-05 23:53:59 | INFO     | BioForge started
+2026-10-05 23:53:59 | INFO     | Data files loaded
+2026-10-05 23:53:59 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:53:59 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:53:59 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:53:59 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:53:59 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:53:59 | INFO     | WeightFilter for min_weight: 150.0
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:53:59 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:53:59 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:53:59 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:53:59 | INFO     | WeightFilter for min_weight: 150.0
+2026-10-05 23:53:59 | INFO     | Report saved to output\report.txt
+2026-10-05 23:54:34 | INFO     | BioForge started
+2026-10-05 23:54:34 | INFO     | Data files loaded
+2026-10-05 23:54:34 | INFO     | Sequence found: 
+ id : seq001 
+ header : organism=Human sample=B
+2026-10-05 23:54:34 | INFO     | Sequence found: 
+ id : seq002 
+ header : organism=Human sample=B
+2026-10-05 23:54:34 | INFO     | FASTA file loaded: Number of recoreds = 2
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG', 'AUG', 'CCC', 'CCU'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:54:34 | INFO     | Found 4 ORFs in seq001
+2026-10-05 23:54:34 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:54:34 | INFO     | MotifFilter for: ['MK']
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG'], strand=forward, frame=0, start_pose=4, is_complete = True
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG', 'GGA', 'UGA'], strand=forward, frame=0, start_pose=22, is_complete = True
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG', 'AUG', 'CCC'], strand=forward, frame=2, start_pose=27, False
+2026-10-05 23:54:34 | INFO     | orf detected: ['AUG'], strand=reverse, frame=2, start_pose=5, False
+2026-10-05 23:54:34 | INFO     | Found 4 ORFs in seq002
+2026-10-05 23:54:34 | INFO     | LengthFilter for min_length: 1
+2026-10-05 23:54:34 | INFO     | MotifFilter for: ['MK']
+2026-10-05 23:54:34 | INFO     | Report saved to output\report.txt

@@ -6,7 +6,6 @@ from abc import ABC, abstractmethod
 log = get_logger()
 
 
-
 class Filter(ABC):
 
     @abstractmethod
@@ -67,7 +66,7 @@ class WeightFilter(Filter):
     def apply(self, orfs):
         result = []
         for orf in orfs:            
-            weight = orf.molecular_weight
+            weight = orf.protein.molecular_weight
             if weight is None:
                 continue
             if weight < self.min_weight:
@@ -89,7 +88,7 @@ class MotifFilter(Filter):
     def apply(self, orfs):        
         result = []
         for orf in orfs:            
-            for motif_ in orf.motifs:
+            for motif_ in orf.protein.motifs:
                 if motif_["sequence"] == self.motif:
                     result.append(orf)
                     break
