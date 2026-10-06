@@ -36,13 +36,12 @@ def parser(header, keys):
         duplicated = False
         # ثبت آیدی تکراری در لاگ
         if seq_id in keys:
-            log.warning(f"duplicated sequence ID found in FASTA file: {seq_id}") 
-            print(f"duplicated sequence ID found in FASTA file: {seq_id}")   
+            log.warning(f"duplicated sequence ID found in FASTA file: {seq_id}")                
             duplicated = True        
             return duplicated, seq_id, seq_header         
         else: 
             keys.add(seq_id)            
-            log.info(f"Sequence found: \n id : {seq_id} \n header : {seq_header}")
+            log.info(f"Sequence found: id : {seq_id} | header : {seq_header}")
             duplicated = False
             return duplicated, seq_id, seq_header
 
@@ -70,12 +69,18 @@ def input_loader(filename):
     # تشخیص فایل خالی
     is_file_empty(filename)
 
-    _ = ""    
+    _ = "" 
+    seq_id = None
+    seq_header = ""
+    seq_is_invalid = False
+    duplicated_no = 0
+    invalid_no = 0
     header_found = False
     sequence_found = False
     seq_is_dupplicated = False
+    
     with open(filename, "r", encoding="utf-8") as f:
-        for line in f:
+        for line_no,line in enumerate(f):
             line = line.strip() 
                # نادیده گرفتن خطوط خالی و کامنت
             if not line or line.startswith("#"):
@@ -98,7 +103,9 @@ def input_loader(filename):
                 res = parser(line, keys)   
                 seq_is_dupplicated = res[0]              
                 seq_id = res[1]
-                seq_header = res[2]                 
+                seq_header = res[2]  
+                if seq_is_dupplicated :
+                    duplicated_no += 1                  
                               
             elif issequence(line_): 
                 if not header_found:
@@ -108,18 +115,24 @@ def input_loader(filename):
 
                 sequence_found = True
 
-                if not seq_is_dupplicated:
+                if not seq_is_dupplicated and not seq_is_invalid:
                     # تا وقتی که پترن خط سکوئنس است خط را به مقدار قبلی سکوئنس اضافه کن
                      _ += line_     
 
-            else:  
-                if line_:                    
-                    msg = f"Invalid sequence: {line_}"
-                    log.error(msg)
-                    raise InvalidSequenceError(msg)                      
-                continue
+            else:                  
+                if not header_found:
+                    # توقف در صورتی که قبل از اولید هدر متن وجود داشته باشد
+                    msg = "sequence found before first header "
+                    log.error(f"{msg} (line {line_no})")
+                    raise FastaFormatError(msg)
+                sequence_found = True
+                if not seq_is_dupplicated and not seq_is_invalid:
+                    seq_is_invalid = True
+                    invalid_no += 1
+                    _ = ""
+                    log.error(f"skipped record (Invalid sequence): '{seq_id}' (line {line_no}): {line_} ")
         # بعد از آخرین خط اگر سکوئنس مونده سیوش کن
-        if _:
+        if _ and not seq_is_invalid:
             fasta.append({"id":seq_id, "description":seq_header, "sequence":_})            
         elif header_found and not sequence_found:
             msg = f"header without sequence: {seq_id}"
@@ -129,5 +142,11 @@ def input_loader(filename):
     if not keys:
         msg = "no sequence in fasta file"
         log.error(f"{msg} {filename}")
-        raise FastaFormatError(msg)     
+        raise FastaFormatError(msg) 
+
+    log.info(f"FASTA parsing finished: {len(fasta)} valid records, "
+             f"{duplicated_no} duplicate IDs skipped, {invalid_no} invalid records")
+
+    if not fasta:
+        log.warning("No valid records found in FASTA file")    
     return fasta

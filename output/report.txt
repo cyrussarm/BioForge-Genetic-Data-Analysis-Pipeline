@@ -10,10 +10,10 @@ sequence = CCCATGAAACCCGGGTAGTTTATGGGATGATGCCCCCTAA
 complement = GGGTACTTTGGGCCCATCAAATACCCTACTACGGGGGATT
 reverse_complement = TTAGGGGGCATCATCCCATAAACTACCCGGGTTTCATGGG
 GC content = 52.5
-number of ORFs = 1
-number of compelete ORFs = 1
-number of in_compelete ORFs = 0
-======== list of ORFs ======== 
+number of ORFs = 4
+number of compelete ORFs = 2
+number of in_compelete ORFs = 2
+======== list of ORFs (after applying filters) ======== 
 ORF No. : 1
 	Is_compelete: True
 	ORF codons: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG']
@@ -24,6 +24,36 @@ ORF No. : 1
 	Protein's name: MKPG
 	Protein's Molecular Weight: 431.224
 	Protein's length: 4 
+ORF No. : 2
+	Is_compelete: True
+	ORF codons: ['AUG', 'GGA', 'UGA']
+	ID: BFG_002
+	Strand: forward
+	frame: 0
+	start position (1-based): 22
+	Protein's name: MG
+	Protein's Molecular Weight: 206.076
+	Protein's length: 2 
+ORF No. : 3
+	Is_compelete: False
+	ORF codons: ['AUG', 'AUG', 'CCC', 'CCU']
+	ID: BFG_003
+	Strand: forward
+	frame: 2
+	start position (1-based): 27
+	Protein's name: MMPP
+	Protein's Molecular Weight: 474.201
+	Protein's length: 4 
+ORF No. : 4
+	Is_compelete: False
+	ORF codons: ['AUG']
+	ID: BFG_004
+	Strand: reverse
+	frame: 2
+	start position (1-based and respect to the sequence): 5
+	Protein's name: M
+	Protein's Molecular Weight: 149.055
+	Protein's length: 1 
 ========================================
 
 id = seq002
@@ -32,17 +62,79 @@ sequence = CCCATGAAACCCGGGTAGTTTATGGGATGATGCCCCC
 complement = GGGTACTTTGGGCCCATCAAATACCCTACTACGGGGG
 reverse_complement = GGGGGCATCATCCCATAAACTACCCGGGTTTCATGGG
 GC content = 56.75675675675676
-number of ORFs = 1
-number of compelete ORFs = 1
-number of in_compelete ORFs = 0
-======== list of ORFs ======== 
+number of ORFs = 4
+number of compelete ORFs = 2
+number of in_compelete ORFs = 2
+======== list of ORFs (after applying filters) ======== 
 ORF No. : 1
 	Is_compelete: True
 	ORF codons: ['AUG', 'AAA', 'CCC', 'GGG', 'UAG']
-	ID: BFG_002
+	ID: BFG_005
 	Strand: forward
 	frame: 0
 	start position (1-based): 4
 	Protein's name: MKPG
 	Protein's Molecular Weight: 431.224
 	Protein's length: 4 
+ORF No. : 2
+	Is_compelete: True
+	ORF codons: ['AUG', 'GGA', 'UGA']
+	ID: BFG_006
+	Strand: forward
+	frame: 0
+	start position (1-based): 22
+	Protein's name: MG
+	Protein's Molecular Weight: 206.076
+	Protein's length: 2 
+ORF No. : 3
+	Is_compelete: False
+	ORF codons: ['AUG', 'AUG', 'CCC']
+	ID: BFG_007
+	Strand: forward
+	frame: 2
+	start position (1-based): 27
+	Protein's name: MMP
+	Protein's Molecular Weight: 377.148
+	Protein's length: 3 
+ORF No. : 4
+	Is_compelete: False
+	ORF codons: ['AUG']
+	ID: BFG_008
+	Strand: reverse
+	frame: 2
+	start position (1-based and respect to the sequence): 5
+	Protein's name: M
+	Protein's Molecular Weight: 149.055
+	Protein's length: 1 
+========================================
+
+id = a
+description = x
+sequence = ATGGCTAAATGA
+complement = TACCGATTTACT
+reverse_complement = TCATTTAGCCAT
+GC content = 33.33333333333333
+number of ORFs = 2
+number of compelete ORFs = 1
+number of in_compelete ORFs = 1
+======== list of ORFs (after applying filters) ======== 
+ORF No. : 1
+	Is_compelete: True
+	ORF codons: ['AUG', 'GCU', 'AAA', 'UGA']
+	ID: BFG_009
+	Strand: forward
+	frame: 0
+	start position (1-based): 1
+	Protein's name: MAK
+	Protein's Molecular Weight: 348.187
+	Protein's length: 3 
+ORF No. : 2
+	Is_compelete: False
+	ORF codons: ['AUG']
+	ID: BFG_010
+	Strand: forward
+	frame: 2
+	start position (1-based): 9
+	Protein's name: M
+	Protein's Molecular Weight: 149.055
+	Protein's length: 1 

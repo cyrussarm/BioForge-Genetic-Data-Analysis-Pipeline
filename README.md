@@ -1,276 +1,346 @@
 # BioForge
 
-**A Comprehensive Genetic Data Analysis Pipeline**
+BioForge is a Python-based bioinformatics project developed as a team project
+during the Python Mini Camp at Quera College.
 
-BioForge is a command-line pipeline for analyzing DNA sequences from FASTA files. It detects Open Reading Frames (ORFs) across all six reading frames, translates them into proteins, filters the results based on user-defined criteria, annotates them with unique IDs, and produces a structured report.
+The project reads DNA sequences from a FASTA file, analyzes their possible
+reading frames, detects Open Reading Frames (ORFs), translates them into
+proteins, and provides filtering options for the detected results.
 
-This project was developed as the mini-project for the **Quera Python Alpha Bootcamp – 13th Series**.
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Command-Line Arguments](#command-line-arguments)
-- [Input Format](#input-format)
-- [Output Files](#output-files)
-- [Pipeline Overview](#pipeline-overview)
-- [Design Decisions (OOP)](#design-decisions-oop)
-- [Edge Cases and Behaviors](#edge-cases-and-behaviors)
-- [Error Handling](#error-handling)
-- [Logging](#logging)
-- [Examples](#examples)
+The project also keeps incomplete ORFs instead of discarding them and records
+the main execution steps and errors using a logging system.
 
 ---
 
 ## Features
 
-- **FASTA parsing** with validation and duplicate-ID detection
-- **DNA sequence validation** (only `A`, `C`, `G`, `T` allowed)
-- **Sequence operations**: complement, reverse complement, DNA → RNA, GC content
-- **ORF detection** in all 6 reading frames (3 forward + 3 reverse)
-- **Complete and incomplete ORF** reporting (`is_complete` flag)
-- **Translation** of codons to amino acids using an external codon table
-- **Molecular weight calculation** using monoisotopic residue masses
-- **Motif detection** inside translated proteins with position tracking
-- **Three independent filters**: `LengthFilter`, `WeightFilter`, `MotifFilter`
-- **Automatic annotation** with IDs of the form `BFG_001`, `BFG_002`, …
-- **Structured reporting** to `output/report.txt`
-- **Full logging** to `output/bioforge.log` (append mode)
-- **Custom exception hierarchy** for precise error handling
+BioForge provides the following features:
+
+- Reading DNA sequences from FASTA files
+- Validating DNA sequences
+- Handling FASTA format errors
+- Generating the Complement strand
+- Generating the Reverse Complement strand
+- Finding all 6 Reading Frames
+- Detecting Open Reading Frames (ORFs)
+- Detecting both complete and incomplete ORFs
+- Keeping incomplete ORFs in the results
+- Translating codons into amino acid sequences
+- Calculating protein molecular weight
+- Detecting motifs in protein sequences
+- Filtering results based on:
+  - Protein length
+  - Molecular weight
+  - Motifs
+- Assigning unique IDs to detected ORFs
+- Logging important steps, warnings, and errors
+- Saving the final results in a report file
+- Using custom exceptions for error handling
+- Providing a command-line interface for running the program
 
 ---
 
-## Project Structure
-BioForge/
-├── data/
-│ ├── codon_table.txt # CODON AMINO_ACID table
-│ └── amino_weights.txt # ONE_LETTER_CODE RESIDUE_MASS table
-├── input/
-│ └── input.fasta # Example / test input
-├── fileLoaders/
-│ ├── dataLoader.py # Loads codon table & amino weights
-│ └── inputLoader.py # FASTA parser + validation
-├── models/
-│ ├── sequence.py # Sequence class
-│ ├── ORF.py # ORF class
-│ ├── protein.py # Protein class
-│ ├── annotation.py # Annotate class (ID generation)
-│ └── BioForgeExceptions.py # Custom exceptions
-├── utils/
-│ ├── ORF_detector.py # ORF detection across 6 frames
-│ ├── translator.py # Codon → amino acid translation
-│ ├── filtering.py # Filter classes + apply_filters
-│ └── writeReport.py # Report writer
-├── output/
-│ ├── report.txt # Generated report (created at runtime)
-│ └── bioforge.log # Log file (append mode)
-├── logger.py # Logging setup
-├── main.py # CLI entry point
-└── README.md
+## Project Workflow
 
+The general workflow of BioForge is:
 
----
+```text
+FASTA Input
+     |
+     v
+FASTA Validation
+     |
+     v
+DNA Sequence Validation
+     |
+     v
+Complement & Reverse Complement
+     |
+     v
+6 Reading Frames
+     |
+     v
+ORF Detection
+     |
+     +------------------+
+     |                  |
+     v                  v
+Complete ORFs     Incomplete ORFs
+     |                  |
+     +--------+---------+
+              |
+              v
+      Codon Translation
+              |
+              v
+      Protein Generation
+              |
+              v
+          Filtering
+        /      |       \
+       /       |        \
+ Length   Molecular     Motif
+          Weight
+              |
+              v
+          Annotation
+              |
+              v
+           Report
 
-## Requirements
+Main Components
+fileLoaders/
 
-- **Python 3.10+**
-- No external dependencies — uses only the Python standard library:
-  - `argparse`, `os`, `re`, `abc`, `logging`, `pathlib`
+Responsible for loading input and biological data files.
 
----
+inputLoader.py reads and validates FASTA input.
+dataLoader.py loads codon and amino acid weight data.
+models/
 
-## Installation
+Contains the main biological objects used by the project.
 
-```bash
-git clone <repository-url>
-cd BioForge
+Sequence represents a DNA sequence and provides sequence-related
+operations.
+ORF represents a detected Open Reading Frame.
+Protein represents a translated protein and stores its molecular weight
+and detected motifs.
+Annotate assigns unique IDs to detected ORFs.
+BioForgeExceptions.py contains custom exceptions.
+utils/
 
-Usage
-```bash
-python main.py --input <FASTA_FILE> --out <OUTPUT_DIR> --min-length <N> [OPTIONS]
+Contains the main processing operations.
 
-Required arguments:
+ORF_detector.py detects ORFs.
+translator.py translates codons into amino acids.
+filtering.py provides different filtering classes.
+writeReport.py generates the final report.
+logger.py
 
-Argument	Description
---input	Path to the input FASTA file
---out	Path to the output directory
---min-length	Minimum protein length (in amino acids)
-Optional arguments:
+Provides logging functionality for recording program execution, warnings,
+and errors.
 
-Argument	Description
---min-weight	Minimum molecular weight (Da)
---max-weight	Maximum molecular weight (Da)
---motif	Motif to require in proteins (can be repeated)
-Command-Line Arguments
---input (required)
-Path to the FASTA file to analyze.
+main.py
 
---out (required)
-Directory where report.txt and bioforge.log will be written. Created automatically if it does not exist.
+Provides the command-line interface and coordinates the complete processing
+pipeline.
 
---min-length (required)
-Minimum protein length in amino acids. Applied via LengthFilter.
+Technologies
 
---min-weight (optional)
-Minimum molecular weight in Daltons. When given, a WeightFilter is added to the pipeline.
+The project was developed using:
 
---max-weight (optional)
-Maximum molecular weight in Daltons. Can be combined with --min-weight.
+Python 3.13
+Object-Oriented Programming (OOP)
+Regular Expressions (Regex)
+Python Logging
+argparse
+pathlib
+Git
+GitHub
+Python Standard Library
 
---motif (optional, repeatable)
-An amino-acid motif to search for in translated proteins. Can be passed multiple times:
+The project does not require external Python packages for its main
+functionality.
 
-bash
---motif MK --motif TAG
-Each motif creates a separate MotifFilter instance.
+Requirements
+Python 3.13 or compatible Python 3.x version
+A FASTA input file
+The required data files:
+data/codon_table.txt
+data/amino_weights.txt
+Running the Project
+
+BioForge is executed from the command line using main.py.
+
+Run the command from the project root directory.
+
+Basic Usage
+python main.py --input <input_fasta> --out <output_directory> --min-length <minimum_protein_length>
+
+The output directory is created automatically if it does not already exist.
+
+| Argument       | Required | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| `--input`      | Yes      | Path to the input FASTA file                         |
+| `--out`        | Yes      | Path to the output directory                         |
+| `--min-length` | Yes      | Minimum protein length                               |
+| `--min-weight` | No       | Minimum molecular weight                             |
+| `--max-weight` | No       | Maximum molecular weight                             |
+| `--motif`      | No       | Motif to search for; can be specified multiple times |
+
+Filtering
+
+BioForge supports three types of filtering.
+
+Protein Length
+
+The minimum protein length is required when running the program.
+
+Example:
+python main.py --input input/input.fasta --out output --min-length 50
+
+Only proteins satisfying the specified minimum length are kept after
+filtering.
+
+Molecular Weight
+
+A minimum molecular weight can be specified:
+python main.py --input input/input.fasta --out output --min-length 50 --min-weight 5000
+
+A maximum molecular weight can also be specified:
+python main.py --input input/input.fasta --out output --min-length 50 --max-weight 20000
+
+Motif
+
+A motif can be provided using the --motif option:
+python main.py --input input/input.fasta --out output --min-length 50 --motif GHG
 
 Input Format
-BioForge accepts standard FASTA files with one or more records:
 
-text
->seq001 organism=E_coli sample=A
-ATGCTTTTCATAG
+The input file must be in FASTA format.
 
->seq002 organism=Human sample=B
-CCCATGGGGTAA
-Rules:
+Example:
+>sequence_1 Example sequence
+ATGAAACCCGGGTAG
 
-Each record starts with a header line beginning with >.
+>sequence_2 Another sequence
+ATGAAACCCGGG
 
-The first token after > is the sequence ID.
+Design Decisions
 
-Everything after the ID on the header line is the description.
+The following design decisions were made during the development of BioForge.
 
-Sequence lines contain only A, C, G, T (case-insensitive).
+1. Representing Biological Concepts with Separate Classes
+Decision
 
-Blank lines and lines starting with # are ignored.
+Biological concepts such as DNA sequences, ORFs, and proteins were represented
+using separate classes:
 
-A header without a following sequence raises FastaFormatError.
+Sequence
+ORF
+Protein
+Reason
 
-A sequence before the first header raises FastaFormatError.
+Each object has its own properties and responsibilities.
 
-An empty input file raises FastaFormatError.
+For example, the Sequence class handles sequence-related operations such as
+validation, complement generation, reverse complement generation, and GC
+content calculation.
 
-Output Files
-output/report.txt
-A human-readable report grouped by input sequence. For each sequence:
+The ORF class stores information specific to an ORF, while the Protein
+class handles protein-related information such as amino acid sequence,
+molecular weight, and motifs.
 
-ID, description, sequence, complement, reverse complement, GC content
+This separation makes the code easier to understand and maintain.
 
-Number of ORFs (total / complete / incomplete)
+2. Separating ORF Detection from Sequence and ORF Objects Decision
 
-For each ORF:
+The ORF detection process was implemented separately in:
 
-is_complete status
+utils/ORF_detector.py
 
-Codons
+instead of putting the complete ORF detection algorithm inside the Sequence
+or ORF classes.
 
-Auto-generated ID (BFG_XXX)
+Reason
 
-Strand (forward / reverse)
+The Sequence and ORF classes are mainly responsible for representing
+biological data, while the detection process is an algorithm that operates on
+that data.
 
-Frame (0 / 1 / 2)
+Separating the detection algorithm keeps the model classes simpler and makes
+the detection logic easier to modify or test independently.
 
-Start position (1-based, relative to the original DNA strand)
+3. Using Separate Filter Classes
+Decision
 
-Protein sequence, molecular weight, length
+Different filtering conditions were implemented as separate classes:
 
-Detected motifs with their positions
+LengthFilter
+WeightFilter
+MotifFilter
 
-output/bioforge.log
-A log file written in append mode. Contains:
+and applied through a common filtering process.
 
-Application start / stop events
+Reason
 
-Data file loading status
+Protein length, molecular weight, and motif are different filtering criteria.
+Keeping them as separate classes makes it possible to combine different
+filters without putting all filtering conditions into one large function.
 
-FASTA record loading summary
+For example, the user can use only length filtering or combine length,
+molecular weight, and motif filtering.
 
-ORF detection counts per sequence
+This design also makes adding another filter in the future easier.
 
-Filter activation messages
+4. Using Custom Exceptions and Logging
+Decision
 
-Warnings (duplicate IDs, division-by-zero in GC content)
+BioForge uses custom exceptions derived from BioForgeError, including:
 
-Errors with full traceback for unexpected exceptions
+FastaFormatError
+InvalidSequenceError
+DataFileError
+FilteringError
 
-Format:
+The project also uses a logging system to record execution information,
+warnings, and errors.
 
-Pipeline Overview
+Reason
 
-FASTA Input
-    ↓
-Parsing (inputLoader)
-    ↓
-Validation (Sequence.validate)
-    ↓
-ORF Detection (6 frames)
-    ↓
-Translation (translator)
-    ↓
-Motif Detection (Protein.motif_detector)
-    ↓
-Filtering (LengthFilter → WeightFilter → MotifFilter)
-    ↓
-Annotation (BFG_XXX IDs)
-    ↓
-Reporting (write_report)
-    ↓
-Logging (bioforge.log)
-Design Decisions (OOP)
-This project uses Object-Oriented Programming where it adds clarity. Below are the key design decisions.
+Different problems can occur during processing, such as invalid DNA
+sequences, incorrect FASTA input, or missing data files.
 
-Classes
-Class	Responsibility
-Sequence	Encapsulates a DNA sequence and its behaviors: validation, complement, reverse complement, DNA → RNA, GC content
-ORF	Holds ORF data: codons, strand, frame, start position, completeness, associated protein
-Protein	Holds the amino acid sequence, molecular weight, and detected motifs
-Filter (ABC)	Abstract interface for all filters
-LengthFilter, WeightFilter, MotifFilter	Concrete filter implementations
-Annotate	Generates unique IDs (BFG_001, BFG_002, …)
-BioForgeError + subclasses	Unified exception hierarchy
-Functions
-Function	Why a function and not a class
-data_loader	Stateless — reads two files and returns two dicts
-input_loader	Stateless — parses a file and returns a list of records
-ORF_detection	Pure algorithm with no persistent state
-translator	Pure transformation from codons to amino acids
-write_report	Stateless I/O
-apply_filters	Chains filters without needing any state
-Inheritance
-Exception hierarchy: BioForgeError → FastaFormatError, InvalidSequenceError, DataFileError, FilteringError
+Custom exceptions make these errors easier to distinguish and handle.
 
-Filter hierarchy: Filter (ABC) → LengthFilter, WeightFilter, MotifFilter
+Logging was also chosen instead of relying only on print() statements because
+the execution history can be stored in a log file and reviewed after the
+program finishes.
 
-Polymorphism
-All concrete filters implement Filter.apply(orfs). The apply_filters function calls filter_.apply(result) without knowing the concrete filter type. Adding a new filter only requires subclassing Filter — no changes to apply_filters.
+5. Using a Command-Line Interface
+Decision
 
-Composition
-Sequence has a list of ORF objects (seq.orfs)
+The program uses Python's argparse module to receive input and filtering
+parameters from the command line.
 
-ORF has a Protein object (orf.protein)
+Reason
 
-Protein has a list of motifs (protein.motifs)
+A command-line interface allows the same program to be executed with different
+input files and filtering conditions without changing the source code.
 
-Design Decisions (Rationale)
-Filters implement a common ABC. This lets apply_filters treat all filters uniformly and makes adding new filter types trivial (Open/Closed Principle).
+Error Handling
 
-Incomplete ORFs are kept, not dropped. The project specification requires reporting both complete and incomplete ORFs, with an is_complete flag. Dropping them would lose information.
+BioForge uses custom exception handling to manage errors during execution.
 
-Reverse-strand start_pos is converted to forward-strand coordinates. The report must express positions relative to the original DNA strand, regardless of the strand on which the ORF was found.
+Examples include:
 
-Codon table and amino weights are loaded from external files. The specification explicitly forbids hardcoding this data; it must be read from data/.
+Missing or invalid input files
+Empty input files
+Invalid DNA sequences
+FASTA format problems
+Invalid or missing data files
+Filtering-related errors
 
-Only --min-length is required by the CLI. The specification lists exactly three required arguments. --min-weight, --max-weight, and --motif are added as optional extensions that activate additional filters only when provided.
+Errors related to individual records can be handled without necessarily
+stopping the processing of all other records.
 
-WeightFilter and MotifFilter are activated conditionally. If no weight or motif is given, the corresponding filter is not constructed. This keeps the pipeline lean and matches the "optional filter" design.
+Unexpected errors are also logged and propagated so that they are not silently
+ignored.
 
-exc_info=True is used when logging unexpected exceptions. Full tracebacks are essential for debugging bugs that slip past the domain-specific BioForgeError handlers.
+Team Members
 
-ORF detection runs in 6 frames separately. Both strands and all three frames per strand must be scanned — this is the standard bioinformatics approach and is required by the specification.
+This project was developed as a team project during the Python Mini Camp at
+Quera College.
+
+سیروس
+عارفه
+رضا
+مبینا
+کمیل
+
+Project Goal
+
+The main goal of BioForge is to apply Python programming concepts such as
+Object-Oriented Programming, file handling, regular expressions, exception
+handling, logging, and modular software design to a practical bioinformatics
+problem.
 

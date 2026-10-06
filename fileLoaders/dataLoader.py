@@ -52,8 +52,8 @@ def data_loader(codonfile, aminofile):
             if line.startswith("#"):
                 continue
             # چک پترن خط
-            m = re.match(r"^([A-Z])\s+(\d+(?:\.\d+))$",line)  # پترن عوض شده چون فقط اعداد اعشاری را قبول میکرد
-            
+            m = re.match(r"^([A-Z])\s+(\d+(?:\.\d+)?)$",line)  # پترن عوض شده چون فقط اعداد اعشاری را قبول میکرد
+                      
             if not m:
                 log.error("amino_weights.txt line %d: bad format: %r", i + 1, line)
                 raise DataFileError(f"amino_weights.txt line {i+1}: bad format {line}")
